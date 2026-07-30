@@ -1,0 +1,21 @@
+{
+  "name": "donor-dash-seeders",
+  "version": "1.0.0",
+  "description": "Data seeding utilities for Donor Dash application",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "import": "node --env-file=../.env index.js",
+    "destroy": "node --env-file=../.env index.js -d",
+    "import:users": "node --env-file=../.env users.js",
+    "destroy:users": "node --env-file=../.env users.js -d"
+  },
+  "author": "Vikas Satpute",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "colors": "^1.4.0",
+    "dotenv": "^16.5.0",
+    "mongoose": "^8.0.0"
+  }
+}

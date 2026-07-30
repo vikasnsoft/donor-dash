@@ -1,0 +1,65 @@
+import bcrypt from 'bcryptjs';
+
+const users = [
+  {
+    name: 'Admin User',
+    email: 'admin@example.com',
+    password: bcrypt.hashSync('123456', 10),
+    isAdmin: true,
+    role: 'admin',
+    phone: '+91 98765 43210',
+    defaultCurrency: 'INR',
+    timezone: 'Asia/Kolkata',
+  },
+  {
+    name: 'Supervisor User',
+    email: 'supervisor@example.com',
+    password: bcrypt.hashSync('123456', 10),
+    isAdmin: false,
+    role: 'supervisor',
+    phone: '+91 98765 43211',
+    defaultCurrency: 'INR',
+    timezone: 'Asia/Kolkata',
+  },
+  {
+    name: 'Volunteer User',
+    email: 'volunteer@example.com',
+    password: bcrypt.hashSync('123456', 10),
+    isAdmin: false,
+    role: 'volunteer',
+    phone: '+91 98765 43212',
+    defaultCurrency: 'INR',
+    timezone: 'Asia/Kolkata',
+  },
+  {
+    name: 'Auditor User',
+    email: 'auditor@example.com',
+    password: bcrypt.hashSync('123456', 10),
+    isAdmin: false,
+    role: 'auditor',
+    phone: '+91 98765 43213',
+    defaultCurrency: 'INR',
+    timezone: 'Asia/Kolkata',
+  },
+  {
+    name: 'Support User',
+    email: 'support@example.com',
+    password: bcrypt.hashSync('123456', 10),
+    isAdmin: false,
+    role: 'support',
+    phone: '+91 98765 43214',
+    defaultCurrency: 'INR',
+    timezone: 'Asia/Kolkata',
+  },
+  {
+    name: 'Guest User',
+    email: 'guest@example.com',
+    password: bcrypt.hashSync('123456', 10),
+    isAdmin: false,
+    role: 'guest',
+    defaultCurrency: 'INR',
+    timezone: 'Asia/Kolkata',
+  },
+];
+
+export default users;

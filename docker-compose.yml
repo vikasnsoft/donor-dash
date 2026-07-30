@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: donor-dash-mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: donor-dash
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: donor-dash-redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mailpit:
+    image: axllent/mailpit
+    container_name: donor-dash-mailpit
+    ports:
+      - '1025:1025'   # SMTP
+      - '8025:8025'   # Web UI
+    environment:
+      MP_MAX_MESSAGES: 5000
+      MP_DATABASE: /tmp/mailpit.db
+
+volumes:
+  mongo-data:
+  redis-data:
