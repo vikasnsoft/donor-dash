@@ -41,3 +41,13 @@ graphify-out/cache/
 __pycache__/
 *.pyc
 .venv/
+-e 
+# Lock files
+pnpm-lock.yaml
+lefthook.yml
+
+# Graphify output
+graphify-out/
+
+# CommandCode
+.commandcode/
