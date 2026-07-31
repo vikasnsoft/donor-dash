@@ -47,7 +47,8 @@ export function formatDecimal128(value: unknown): number {
   if (!value) return 0;
   if (typeof value === "number") return value;
   if (typeof value === "string") return parseFloat(value);
-  if (value.$numberDecimal) return parseFloat(value.$numberDecimal);
+  const obj = value as Record<string, unknown>;
+  if (obj.$numberDecimal) return parseFloat(obj.$numberDecimal as string);
   return parseFloat(String(value));
 }
 

@@ -177,3 +177,14 @@ export function useDonorRetention(orgId: string) {
     enabled: !!orgId,
   });
 }
+
+export function useEventSummary(eventId: string) {
+  return useQuery({
+    queryKey: ["event-summary", eventId],
+    queryFn: async () => {
+      const response = await apiClient.get(`/events/${eventId}/summary`);
+      return response.data.data;
+    },
+    enabled: !!eventId,
+  });
+}
