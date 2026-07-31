@@ -171,7 +171,6 @@ const organisationSchema = new mongoose.Schema(
 );
 
 // Indexes
-organisationSchema.index({ slug: 1 }, { unique: true, sparse: true });
 organisationSchema.index({ name: 1 });
 organisationSchema.index({ 'members.user': 1 });
 organisationSchema.index({ createdBy: 1 });

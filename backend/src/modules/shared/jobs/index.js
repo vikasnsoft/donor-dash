@@ -16,8 +16,8 @@
  */
 
 import { Queue, Worker } from 'bullmq';
-import config from '../../config/index.js';
-import logger from '../../utils/logger.js';
+import config from '../../../config/index.js';
+import logger from '../../../utils/logger.js';
 
 // Redis connection
 const connection = config.redis.enabled

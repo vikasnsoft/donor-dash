@@ -4,7 +4,7 @@ import donorRepo from '../donors/repository.js';
 import donationRepo from '../donations/repository.js';
 import { expenseRepo } from '../expenses/repository.js';
 import { ledgerRepo } from '../ledger/repository.js';
-import donorService from '../donors/service.js';
+import * as donorService from '../donors/service.js';
 import * as donationService from '../donations/service.js';
 
 /**

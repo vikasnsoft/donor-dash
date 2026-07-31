@@ -6,8 +6,8 @@
  */
 
 import { createWorker } from './index.js';
-import { registry } from '../projections/engine.js';
-import logger from '../../utils/logger.js';
+import { registry } from '../../projections/engine.js';
+import logger from '../../../utils/logger.js';
 
 /**
  * Register all job workers.

@@ -70,7 +70,7 @@ const donationSchema = new mongoose.Schema(
       default: null,
     },
     // Collection context
-    collection: {
+    collectionId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Collection',
       default: null,
@@ -107,10 +107,9 @@ const donationSchema = new mongoose.Schema(
 donationSchema.index({ organisation: 1, event: 1, date: -1 });
 donationSchema.index({ donor: 1, date: -1 });
 donationSchema.index({ campaign: 1, date: -1 });
-donationSchema.index({ receiptNumber: 1 }, { unique: true, sparse: true });
 donationSchema.index({ status: 1 });
 donationSchema.index({ collectedBy: 1 });
-donationSchema.index({ collection: 1 });
+donationSchema.index({ collectionId: 1 });
 
 const Donation = mongoose.model('Donation', donationSchema);
 

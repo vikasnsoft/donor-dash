@@ -77,7 +77,6 @@ const groupSchema = new mongoose.Schema(
 groupSchema.index({ 'members.user': 1 });
 groupSchema.index({ organisation: 1 });
 groupSchema.index({ event: 1 });
-groupSchema.index({ inviteCode: 1 }, { unique: true, sparse: true });
 groupSchema.index({ isArchived: 1 });
 
 // Auto-add creator as admin member

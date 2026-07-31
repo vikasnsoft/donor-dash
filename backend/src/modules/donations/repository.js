@@ -43,7 +43,7 @@ class DonationRepository extends BaseRepository {
     return await this.paginate(filter, {
       populate: [
         { path: 'donor', select: 'name phone type' },
-        { path: 'event', select: name slug },
+        { path: 'event', select: 'name slug' },
         { path: 'collectedBy', select: 'name' },
       ],
       sort: '-date',
