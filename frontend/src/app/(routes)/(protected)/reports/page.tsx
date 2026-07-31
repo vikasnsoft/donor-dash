@@ -1,17 +1,22 @@
 "use client";
 
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useOrganisations } from "@/hooks/useOrganisations";
+
 export default function ReportsPage() {
+  const router = useRouter();
+  const { data: orgs } = useOrganisations();
+
+  useEffect(() => {
+    if (orgs?.data?.[0]?._id) {
+      router.replace(`/organisations/${orgs.data[0]._id}/reports`);
+    }
+  }, [orgs, router]);
+
   return (
-    <div className="container mx-auto py-10">
-      <h1 className="mb-6 text-3xl font-bold">Reports</h1>
-      <div className="rounded-lg border bg-card p-6 shadow-sm">
-        <p className="text-muted-foreground">
-          Financial reports, donation summaries, expense breakdowns, and more.
-        </p>
-        <p className="mt-4 text-sm text-muted-foreground">
-          Coming in Phase 2.2 — Accounting Core & Reports
-        </p>
-      </div>
+    <div className="container mx-auto py-10 text-center">
+      <p className="text-muted-foreground">Redirecting to reports...</p>
     </div>
   );
 }
