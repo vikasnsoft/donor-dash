@@ -51,7 +51,7 @@ type FormValues = z.infer<typeof schema>;
 export default function RecordDonationPage() {
   const router = useRouter();
   const params = useParams();
-  const eventId = params.eventId as string;
+  const eventId = params.id as string;
 
   const [donorSearch, setDonorSearch] = useState("");
   const [selectedDonor, setSelectedDonor] = useState<{
