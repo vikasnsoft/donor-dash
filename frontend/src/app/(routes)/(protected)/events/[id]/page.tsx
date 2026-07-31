@@ -9,6 +9,7 @@ import {
   useCampaignSummaries,
   useEventSummary,
 } from "@/hooks/useDashboard";
+import { useDonations } from "@/hooks/useDonations";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -65,6 +66,7 @@ export default function EventDetailPage() {
   const { data: dailyDonations } = useDailyDonations(eventId);
   const { data: volunteers } = useVolunteerPerformance(eventId);
   const { data: campaigns } = useCampaignSummaries(eventId);
+  const { data: donations } = useDonations(eventId);
 
   if (isLoading) {
     return (
@@ -247,13 +249,49 @@ export default function EventDetailPage() {
               </Link>
             </Button>
           </div>
-          <Card>
-            <CardContent className="py-10 text-center">
-              <p className="text-muted-foreground">
-                Donation list will appear here once donations are recorded.
-              </p>
-            </CardContent>
-          </Card>
+          {donations && donations.data.length > 0 ? (
+            <div className="space-y-2">
+              {donations.data.map((donation) => (
+                <Link
+                  key={donation._id}
+                  href={`/donations/${donation._id}`}
+                  className="flex items-center justify-between p-3 rounded-lg border hover:bg-accent transition-colors"
+                >
+                  <div>
+                    <p className="font-medium">
+                      ₹{parseFloat(String(donation.amount)).toLocaleString("en-IN")}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {donation.donor?.name} &middot;{" "}
+                      {new Date(donation.date).toLocaleDateString("en-IN")}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="outline">{donation.method}</Badge>
+                    <Badge
+                      variant={
+                        donation.status === "received"
+                          ? "default"
+                          : donation.status === "cancelled"
+                          ? "destructive"
+                          : "secondary"
+                      }
+                    >
+                      {donation.status}
+                    </Badge>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <Card>
+              <CardContent className="py-10 text-center">
+                <p className="text-muted-foreground">
+                  No donations recorded yet. Click &quot;Record Donation&quot; to add one.
+                </p>
+              </CardContent>
+            </Card>
+          )}
         </TabsContent>
 
         {/* Campaigns Tab */}
