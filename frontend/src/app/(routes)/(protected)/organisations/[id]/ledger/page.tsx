@@ -36,7 +36,7 @@ const STATUS_COLORS: Record<string, string> = {
 
 export default function LedgerPage() {
   const params = useParams();
-  const orgId = params.orgId as string;
+  const orgId = params.id as string;
   const [page, setPage] = useState(1);
   const [sourceType, setSourceType] = useState("");
   const [status, setStatus] = useState("");

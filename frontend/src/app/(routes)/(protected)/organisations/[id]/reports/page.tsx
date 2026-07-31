@@ -42,7 +42,7 @@ const reportCards = [
 
 export default function ReportsPage() {
   const params = useParams();
-  const orgId = params.orgId as string;
+  const orgId = params.id as string;
 
   return (
     <div className="container mx-auto py-10">

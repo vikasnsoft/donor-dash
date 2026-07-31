@@ -19,7 +19,7 @@ const TYPE_COLORS: Record<string, string> = {
 
 export default function TrialBalancePage() {
   const params = useParams();
-  const orgId = params.orgId as string;
+  const orgId = params.id as string;
 
   const { data, isLoading } = useTrialBalance(orgId);
 

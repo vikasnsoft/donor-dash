@@ -21,7 +21,7 @@ const METHOD_LABELS: Record<string, string> = {
 
 export default function DonationReportPage() {
   const params = useParams();
-  const orgId = params.orgId as string;
+  const orgId = params.id as string;
 
   const now = new Date();
   const monthStart = new Date(now.getFullYear(), now.getMonth(), 1)

@@ -50,7 +50,7 @@ type FormValues = z.infer<typeof schema>;
 export default function NewDonorPage() {
   const router = useRouter();
   const params = useParams();
-  const orgId = params.orgId as string;
+  const orgId = params.id as string;
   const mutation = useCreateDonor(orgId);
 
   const form = useForm<FormValues>({

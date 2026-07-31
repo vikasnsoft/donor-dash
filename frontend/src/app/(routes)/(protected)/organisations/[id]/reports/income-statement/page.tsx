@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export default function IncomeStatementPage() {
   const params = useParams();
-  const orgId = params.orgId as string;
+  const orgId = params.id as string;
 
   const now = new Date();
   const fyStart = now.getMonth() >= 3

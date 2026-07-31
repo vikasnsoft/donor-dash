@@ -26,7 +26,7 @@ const TYPE_LABELS: Record<string, string> = {
 
 export default function DonorsPage() {
   const params = useParams();
-  const orgId = params.orgId as string;
+  const orgId = params.id as string;
   const [searchQuery, setSearchQuery] = useState("");
   const [page, setPage] = useState(1);
 

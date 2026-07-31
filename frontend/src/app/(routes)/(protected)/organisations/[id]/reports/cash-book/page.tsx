@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export default function CashBookPage() {
   const params = useParams();
-  const orgId = params.orgId as string;
+  const orgId = params.id as string;
 
   const now = new Date();
   const monthStart = new Date(now.getFullYear(), now.getMonth(), 1)
