@@ -20,7 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "@dietrichgebert/ponytail": "^4.8.4",
-    "express": "^5.1.0"
+    "express": "^5.2.1"
   },
   "devDependencies": {
     "concurrently": "^10.0.4",
